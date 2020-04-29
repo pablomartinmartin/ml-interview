@@ -1,0 +1,41 @@
+@import "../../App.scss";
+
+$search-height: 35px;
+$search-font-size: 18px;
+
+.nav-search {
+  display: flex;
+  height: 14vh;
+  background-color: $ml-yellow;
+  justify-content: center;
+  align-items: center;
+
+  &__logo {
+    display: flex;
+    margin: 0 20px;
+  }
+
+  > input {
+    color: $ml-black;
+    font-size: $search-font-size;
+    height: $search-height;
+    padding: 5px 10px;
+    min-width: 50%;
+    border: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  > input::placeholder {
+    color: $ml-gray;
+    font-size: $search-font-size;
+  }
+
+  > button {
+    background-color: $ml-light-gray;
+    border: 0;
+    border-left: 0;
+    border-radius: 0 3px 3px 0;
+    height: $search-height + 10px;
+    padding: 5px 10px;
+  }
+}
