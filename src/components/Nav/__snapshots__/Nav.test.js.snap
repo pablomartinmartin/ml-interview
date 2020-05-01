@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Nav /> renders nav component 1`] = `
+<Nav
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
+>
+  <nav
+    className="nav-search"
+  >
+    <img
+      alt="Logo"
+      className="nav-search__logo"
+      src="Logo_ML.png"
+    />
+    <form
+      name="search-form"
+      onSubmit={[Function]}
+    >
+      <input
+        autoFocus={true}
+        className="nav-search__field"
+        maxLength="100"
+        name="searchField"
+        onChange={[Function]}
+        placeholder="Nunca dejes de buscar"
+        type="text"
+      />
+      <button
+        className="nav-search__button"
+        type="submit"
+      >
+        <img
+          alt="Search"
+          src="ic_Search.png"
+        />
+      </button>
+    </form>
+  </nav>
+</Nav>
+`;

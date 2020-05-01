@@ -1,22 +1,42 @@
-import React from "react";
-import "./Nav.scss";
+import React, { useState } from "react";
+import { withRouter } from 'react-router-dom';
 
 import logo from "../../assets/Logo_ML.png";
 import search from "../../assets/ic_Search.png";
 
-export default function Nav() {
+import "./Nav.scss";
+
+const Nav = (props) => {
+  const [query, setQuery] = useState("");
+
+  const handleSubmitSearch = event => {
+    event.preventDefault();
+
+    props.history.push({
+      pathname: '/items',
+      search: `?q=${query}`,
+    });
+  }
+
   return (
     <nav className="nav-search">
       <img src={logo} alt="Logo" className="nav-search__logo" />
-      <input
-        type="text"
-        placeholder="Nunca dejes de buscar"
-        maxLength="100"
-        autoFocus
-      />
-      <button>
-        <img src={search} alt="Search" />
-      </button>
+      <form name="search-form" onSubmit={handleSubmitSearch}>
+        <input
+          type="text"
+          name="searchField"
+          placeholder="Nunca dejes de buscar"
+          maxLength="100"
+          autoFocus
+          className="nav-search__field"
+          onChange={e => setQuery(e.target.value)}
+        />
+        <button type="submit" className="nav-search__button">
+          <img src={search} alt="Search" />
+        </button>
+      </form>
     </nav>
   );
 }
+
+export default withRouter(Nav);
