@@ -4,7 +4,7 @@ const ProductPage = (props) => {
 
   return (
     <div>
-      <h1>I'm Product view of {productId}</h1>
+      <h1 data-test="soy-h1" >I'm Product view of {productId}</h1>
     </div>
   );
 };
