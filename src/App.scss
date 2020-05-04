@@ -1,3 +1,4 @@
+/* Colors */
 $ml-yellow: #FFE600;
 $ml-light-gray: #EEEEEE;
 $ml-light-blue: #3483FA;
@@ -5,8 +6,45 @@ $ml-gray: #999999;
 $ml-dark-gray: #666666;
 $ml-black: #333333;
 
-.App {
-  text-align: center;
+/* Font Sizes */
+
+$x-small-font-size: 12px;
+$small-font-size: 14px;
+$medium-font-size: 18px;
+$large-font-size: 24px;
+
+.x-small-text {
+  font-size: $x-small-font-size;  
 }
 
+.small-text {
+  font-size: $small-font-size;  
+}
 
+.medium-text {
+  font-size: $medium-font-size;  
+}
+
+.large-text {
+  font-size: $large-font-size;  
+}
+
+h2 {
+  font-size: $large-font-size;
+  font-weight: 400;
+  margin: 10px 0 32px 0;
+  padding: 0;
+}
+
+h3 {
+  font-size: $medium-font-size;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  background-color: $ml-light-gray;
+  height: 100%;
+  width: 100%;
+}

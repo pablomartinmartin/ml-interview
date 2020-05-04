@@ -54,7 +54,7 @@ describe('<Nav />', () => {
       expect(history.push).toHaveBeenCalled();
       expect(history.push).toHaveBeenCalledWith({
         pathname: '/items',
-        search: `?q=`,
+        search: `?search=`,
       });
     });
 
@@ -69,7 +69,7 @@ describe('<Nav />', () => {
       expect(history.push).toHaveBeenCalled();
       expect(history.push).toHaveBeenCalledWith({
         pathname: '/items',
-        search: `?q=sillon`,
+        search: `?search=sillon`,
       });
     });
   });

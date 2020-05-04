@@ -14,7 +14,7 @@ const Nav = (props) => {
 
     props.history.push({
       pathname: '/items',
-      search: `?q=${query}`,
+      search: `?search=${query}`,
     });
   }
 
