@@ -1,9 +1,16 @@
-import { MOCK_ITEMS_SEARCH } from '../_fixtures/items';
+import axios from "axios";
 
-export function itemsApi() {
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => resolve(MOCK_ITEMS_SEARCH), 1000)
+export function itemsApi(query) {
+  return axios
+    .get("http://localhost:3001/api/items", {
+      params: {
+        q: query,
+      },
+    })
+    .then(function ({ data }) {
+      return data;
+    })
+    .catch(function (error) {
+      console.log(error);
     });
-  
-    return promise;
-  }
+}

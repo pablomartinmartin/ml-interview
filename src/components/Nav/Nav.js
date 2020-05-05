@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { withRouter } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
 
 import logo from "../../assets/Logo_ML.png";
 import search from "../../assets/ic_Search.png";
@@ -7,16 +7,25 @@ import search from "../../assets/ic_Search.png";
 import "./Nav.scss";
 
 const Nav = (props) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
-  const handleSubmitSearch = event => {
+  const queryParams = new URLSearchParams(props.location.search);
+  const querySearch = queryParams.get('search');
+
+  useEffect(() => {
+    if (querySearch) {
+      setQuery(querySearch);
+    }
+  }, [querySearch]);
+
+  const handleSubmitSearch = (event) => {
     event.preventDefault();
 
     props.history.push({
       pathname: '/items',
       search: `?search=${query}`,
     });
-  }
+  };
 
   return (
     <nav className="nav-search">
@@ -29,7 +38,8 @@ const Nav = (props) => {
           maxLength="100"
           autoFocus
           className="nav-search__field"
-          onChange={e => setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value)}
+          defaultValue={query || ""}
         />
         <button type="submit" className="nav-search__button">
           <img src={search} alt="Search" />
@@ -37,6 +47,6 @@ const Nav = (props) => {
       </form>
     </nav>
   );
-}
+};
 
 export default withRouter(Nav);
