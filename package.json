@@ -23,7 +23,9 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "server": "node ./server/server.js",
+    "client": "react-scripts start",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^5.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2"
   }

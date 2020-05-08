@@ -4,8 +4,6 @@
     display: flex;
     align-items: center;
     flex-flow: column;
-    margin: auto;
-    width: 75%;
 }
 
 .results-card {
@@ -24,5 +22,18 @@
         border-radius: 4px;
         width: 100%;
         height: auto;
+    }
+
+    &__price-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+
+        > h2 {
+            margin: 0 10px 0 0;
+        }
+        > img {
+            width: 18px;
+        }
     }
 }  

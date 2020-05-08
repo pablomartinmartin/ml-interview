@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { itemsApi } from "../../api/items";
-
+import { CONDITION_MAP, CURRENCY_MAP } from "../constants";
 import "./ResultPage.scss";
 
-const CURRENCY_MAP = {
-  ARS: "$",
-  USD: "U$S",
-  BRL: "R$",
+import shippingLogo from "../../assets/ic_shipping.png";
+
+const ConditionIcon = (condition) => {
+  let conditionComponent = null;
+
+  if (condition) {
+    conditionComponent = (
+      <img alt="condition" src={shippingLogo} />
+    );
+  }
+  return conditionComponent;
 };
 
 const ProductCard = (props) => {
   const {
-    product: { id, picture, price, title },
+    product: { id, picture, price, title, condition },
     onClickProduct,
   } = props;
-
+  
   return (
     <div
       onClick={() => onClickProduct(id)}
@@ -25,9 +32,13 @@ const ProductCard = (props) => {
         <img src={picture} alt="Product" className="results-card__picture" />
       </div>
       <div>
-        <h2 className="medium-text">{`${CURRENCY_MAP[price.currency]} ${
-          price.amount
-        }`}</h2>
+        <div className="results-card__price-wrapper">
+          <h2 className="medium-text">{`${CURRENCY_MAP[price.currency]} ${
+            price.amount
+          }`}</h2>
+          <ConditionIcon condition={CONDITION_MAP[condition].showIcon}/>
+        </div>
+
         <h3 className="small-text">{title}</h3>
       </div>
     </div>

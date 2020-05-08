@@ -14,3 +14,14 @@ export function itemsApi(query) {
       console.log(error);
     });
 }
+
+export function itemByIdApi(id) {
+  return axios
+    .get(`http://localhost:3001/api/items/${id}`)
+    .then(function ({ data: { item }}) {
+      return item;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}

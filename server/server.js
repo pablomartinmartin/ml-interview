@@ -45,6 +45,7 @@ app.get("/api/items", (req, res, next) => {
   const itemsQueryString = querystring.stringify({ q: req.query.q });
   const URL_RESULTS_ITEMS = `${API_BASE_URL}/sites/MLA/search?${itemsQueryString}`;
 
+  //Ejemplo usando request, es más usado en nodeJS pero está deprecado
   request.get(URL_RESULTS_ITEMS, (error, response, itemsData) => {
     const { results, available_filters } = JSON.parse(itemsData);
 
@@ -80,7 +81,8 @@ app.get("/api/items/:id", (req, res, next) => {
 
   const itemsByIdPromise = getItems(URL_ITEMS_BY_ID);
   const descriptionByIdPromise = getItems(URL_ITEMS_DESCRIPTION);
-
+  
+  //Ejemplo usando Promise
   const batchItems = Promise.all([itemsByIdPromise, descriptionByIdPromise]);
 
   batchItems.then((results) => {
