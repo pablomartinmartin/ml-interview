@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { isEmpty } from 'lodash';
+
+import Loader from '../Loader/Loader';
+
 import { itemsApi } from "../../api/items";
 import { CONDITION_MAP, CURRENCY_MAP } from "../constants";
 import "./ResultPage.scss";
@@ -22,6 +26,10 @@ const ProductCard = (props) => {
     onClickProduct,
   } = props;
   
+  if (isEmpty(props.product)) {
+    return <Loader />;
+  }
+
   return (
     <div
       onClick={() => onClickProduct(id)}
@@ -60,7 +68,7 @@ const ResultsPage = (props) => {
       pathname: `/items/${productId}`,
     });
   };
-
+  
   const resultsBuilder = () => {
     const itemComponent = items.map((item) => (
       <ProductCard
