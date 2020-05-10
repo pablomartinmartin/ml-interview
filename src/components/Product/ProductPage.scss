@@ -4,11 +4,6 @@
     background-color: white;
     padding: 32px;
 
-    &__main {
-        display: flex;
-        justify-content: space-between;
-    }
-
     &__buy-wrapper {
         max-width: 350px;
     }
@@ -24,7 +19,7 @@
         }
     }
 
-    &__description-text {
+    &__description-text {     
         color: $ml-gray;
         font-size: $x-small-font-size;
         margin-top: 32px;
@@ -32,7 +27,8 @@
     }
 
     &__picture {
-        max-width: 680px;
+        max-width: 100%;
+        width: 680px;
         border-radius: 4px;
     }
 

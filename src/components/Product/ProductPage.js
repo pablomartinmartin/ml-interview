@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { isEmpty } from 'lodash';
-import Loader from '../Loader/Loader';
+import { isEmpty } from "lodash";
+import Loader from "../Loader/Loader";
 
 import { itemByIdApi } from "../../api/items";
 
@@ -31,14 +31,16 @@ const ProductPage = (props) => {
 
   return (
     <div className="product-page">
-      <div className="product-page__main">
-        <img
-          alt="producto"
-          src={picture}
-          className="product-page__picture"
-          data-test="product-image"
-        />
-        <div className="product-page__buy-wrapper">
+      <div className="row product-page__main">
+        <div className="cell">
+          <img
+            alt="producto"
+            src={picture}
+            className="product-page__picture"
+            data-test="product-image"
+          />
+        </div>
+        <div className="cell product-page__buy-wrapper">
           <div className="product-page__condition">{`${CONDITION_MAP[condition].text} - ${sold_quantity} vendidos`}</div>
           <div>
             <h3 className="product-page__title large-text">{title}</h3>

@@ -36,7 +36,7 @@ const ProductCard = (props) => {
       className="results-card"
       data-test="results-card"
     >
-      <div className="results-card__picture-wrapper">
+      <div className="cell results-card__picture-wrapper">
         <img src={picture} alt="Product" className="results-card__picture" />
       </div>
       <div>
