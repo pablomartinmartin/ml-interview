@@ -1,0 +1,16 @@
+@import '../../App.scss'; 
+.breadcrumb {
+    @include mediaQuery-xsmall(width, 100%);
+    @include mediaQuery-medium(width, 90%);
+    @include mediaQuery-large(width, 75%);
+
+    display: flex;
+    color: $ml-gray;
+    margin: auto;
+    padding: 20px;
+    width: 100%;
+
+    &__category {
+        margin-right: 5px;
+    }
+}

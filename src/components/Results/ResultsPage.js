@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { isEmpty } from 'lodash';
+
+import MlContext from '../../context';
 
 import Loader from '../Loader/Loader';
 
@@ -56,12 +58,15 @@ const ProductCard = (props) => {
 const ResultsPage = (props) => {
   const queryParams = new URLSearchParams(props.location.search);
   const querySearch = queryParams.get("search");
-
   const [items, setItems] = useState([]);
+  const {dispatch} = useContext(MlContext);
 
   useEffect(() => {
-    itemsApi(querySearch).then((response) => setItems(response.items));
-  }, [querySearch]);
+    itemsApi(querySearch).then(({items, categories}) => {
+      setItems(items);
+      dispatch({type: "SET_CATEGORIES", payload: categories})
+    });
+  }, [querySearch, dispatch]);
 
   const handlerProductDetail = (productId) => {
     props.history.push({
